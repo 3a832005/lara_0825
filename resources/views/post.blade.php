@@ -52,4 +52,4 @@
         </div>
     </div>
 </article>
-<!-- Footer-->
+@endsection
