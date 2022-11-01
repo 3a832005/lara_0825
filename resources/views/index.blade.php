@@ -2,7 +2,8 @@
 
 @section('title', 'Clean Blog - Home')
 
-@section('content')<!-- Page Header-->
+@section('content')
+<!-- Page Header-->
 <header class="masthead" style="background-image: url('{{ asset('assets/img/home-bg.jpg')}}')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
