@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Models\Post;
-
+use App\Models\Comment;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -81,16 +81,24 @@ Route::get('/', function () {
 //    $lastPosts = Post::orderby('id','DESC')->first();
 //    dd($lastPosts);
 //練習7-4透過comments()擷取(comments)評論
-    $post = Post::find(6);
-    echo '標題: '.$post->title.'<br>';
-    echo '內容: '.$post->content.'<br>';
-    echo '--------------------------'.'<br>';
-    $comments = $post->comments;       //$post->comments後面可省略()->get()
-    foreach($comments as $comment){
-        echo '留言:'.$comment->content.'<br>';
-        echo '--------------------------'.'<br>';
-    }
+//    $post = Post::find(6);
+//    echo '標題: '.$post->title.'<br>';
+//    echo '內容: '.$post->content.'<br>';
+//    echo '--------------------------'.'<br>';
+//    $comments = $post->comments;       //$post->comments後面可省略()->get()
+//    foreach($comments as $comment){
+//        echo '留言:'.$comment->content.'<br>';
+//        echo '--------------------------'.'<br>';
+//    }
 
+//練習7-5透過post()擷取(post)評論
+    $comment = Comment::find(4);
+    echo $comment->content.'<br>';
+    echo '******************'.'<br>';
+    $post = $comment->post;            //$comment->post後面可省略()->first()
+    echo $post->id.'<br>';
+    echo $post->title.'<br>';
+    echo $post->content.'<br>';
 });
 
 Route::get('posts',[PostController::class, 'index'])->name('posts.index');
