@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Models\Post;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,15 +66,17 @@ Route::get('/', function () {
 //練習5使用destroy方式刪除資料
 //    Post::destroy(2);
 //    return'destroy';
-
 //練習5使用destroy方式刪除多筆資料
 //    Post::destroy(3,5,7);
 //練習6-1取得Collection
 //    $allPosts = Post::all();
 //    dd($allPosts);
-
-    $featuredPosts = Post::where('is_feature',1)->get();
-    dd($featuredPosts);
+//練習6-2取得is_feature為1的貼文
+//    $featuredPosts = Post::where('is_feature',1)->get();
+//    dd($featuredPosts);
+//練習6-3取得Model
+    $fourthPost = Post::find(4);
+    dd($fourthPost);
 });
 
 Route::get('posts',[PostController::class, 'index'])->name('posts.index');
