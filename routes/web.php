@@ -78,8 +78,19 @@ Route::get('/', function () {
 //    $fourthPost = Post::find(4);
 //    dd($fourthPost);
 //練習6-4將id由大到小，取得第一筆貼文
-    $lastPosts = Post::orderby('id','DESC')->first();
-    dd($lastPosts);
+//    $lastPosts = Post::orderby('id','DESC')->first();
+//    dd($lastPosts);
+//練習7-4透過comments()擷取(comments)評論
+    $post = Post::find(6);
+    echo '標題: '.$post->title.'<br>';
+    echo '內容: '.$post->content.'<br>';
+    echo '--------------------------'.'<br>';
+    $comments = $post->comments;       //$post->comments後面可省略()->get()
+    foreach($comments as $comment){
+        echo '留言:'.$comment->content.'<br>';
+        echo '--------------------------'.'<br>';
+    }
+
 });
 
 Route::get('posts',[PostController::class, 'index'])->name('posts.index');
