@@ -66,7 +66,11 @@ Route::get('/', function () {
 //    Post::destroy(2);
 //    return'destroy';
 
-    Post::destroy(3,5,7);
+//練習5使用destroy方式刪除多筆資料
+//    Post::destroy(3,5,7);
+
+    $allPosts = Post::all();
+    dd($allPosts);
 });
 
 Route::get('posts',[PostController::class, 'index'])->name('posts.index');
