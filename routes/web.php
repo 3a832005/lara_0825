@@ -15,24 +15,24 @@ use App\Models\Post;
 */
 
 Route::get('/', function () {
-//  return redirect(route('posts.index'));
-//  $post=new Post();
-//  $post->title ='test title';
-//  $post->content ='test content';
-//  $post->save();
-
+//    return redirect(route('posts.index'));
+//練習2使用save方式新增資料
+//    $post=new Post();
+//    $post->title ='test title';
+//    $post->content ='test content';
+//    $post->save();
+//練習2使用create方式新增資料
 //    Post::create([
 //        'title'=>'created title',
 //        'content'=>'created content',
 //    ]);
-
 //    return 'OK!';
-
+//練習3使用find方式查詢資料
 //    $post = Post::find(1);
 //    echo '標題: '.$post->title.'<br>';
 //    echo '內容: '.$post->content.'<br>';
 //    dd($post);
-
+//練習3使用all方式查詢資料
 //    $posts = Post::all();
 //    foreach ($posts as $post){
 //        echo '編號: '.$post->id.'<br>';
@@ -42,16 +42,22 @@ Route::get('/', function () {
 //        echo '--------------------------'.'<br>';
  //   }
 //    dd($posts);
-
+//練習3使用where方式查詢資料
 //    $posts = Post::where('id','<',10)->orderBy('id','DESC')->get();
 //    dd($posts);
+//練習4使用update方式更新資料
+//    $post = Post::find(1);
+//   $post->update([
+//        'title' => 'updated title',
+//        'content' => 'updated content',
+//    ]);
+//    return 'update';
 
     $post = Post::find(1);
-    $post->update([
-        'title' => 'updated title',
-        'content' => 'updated content',
-    ]);
-    return 'update';
+    $post->title = 'saved title';
+    $post->content = 'saved content';
+    $post->save();
+    return 'save update';
 });
 
 Route::get('posts',[PostController::class, 'index'])->name('posts.index');
