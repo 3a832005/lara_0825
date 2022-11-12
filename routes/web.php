@@ -75,8 +75,11 @@ Route::get('/', function () {
 //    $featuredPosts = Post::where('is_feature',1)->get();
 //    dd($featuredPosts);
 //練習6-3取得Model
-    $fourthPost = Post::find(4);
-    dd($fourthPost);
+//    $fourthPost = Post::find(4);
+//    dd($fourthPost);
+//練習6-4將id由大到小，取得第一筆貼文
+    $lastPosts = Post::orderby('id','DESC')->first();
+    dd($lastPosts);
 });
 
 Route::get('posts',[PostController::class, 'index'])->name('posts.index');
