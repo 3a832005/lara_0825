@@ -52,12 +52,21 @@ Route::get('/', function () {
 //        'content' => 'updated content',
 //    ]);
 //    return 'update';
+//練習4使用save方式更新資料
+//    $post = Post::find(1);
+//    $post->title = 'saved title';
+//    $post->content = 'saved content';
+//    $post->save();
+//    return 'save update';
+//練習5使用delete方式刪除資料
+//    $post = Post::find(1);
+//    $post->delete();
+//    return 'delete';
+//練習5使用destroy方式刪除資料
+//    Post::destroy(2);
+//    return'destroy';
 
-    $post = Post::find(1);
-    $post->title = 'saved title';
-    $post->content = 'saved content';
-    $post->save();
-    return 'save update';
+    Post::destroy(3,5,7);
 });
 
 Route::get('posts',[PostController::class, 'index'])->name('posts.index');
